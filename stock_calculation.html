@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <style>
+        #btn{
+            border: 1px solid 394867;
+            background-color: 9BA4B5;
+            color:394867;
+            padding: 5px 15px;
+            margin-right:-4px;
+            font-size: 0.9em;
+            border-radius:0.5em;
+        }
+    </style>
+    
+    <p>
+        <b>현재 평균단가 : </b>
+        <input id="now_stock_price" class="inputText" style="width:100px; vertical-align:middle; text-align:right;"
+            type="text" placeholder="평균단가">
+        <b>$,원</b>
+    </p>
+    <p>
+        <b>현재 주식수량 : </b>
+        <input id="now_stocks" class="inputText" style="width:100px; vertical-align:middle; text-align:right;"
+            type="text" placeholder="주식수량">
+        <b>주</b>
+    </p>
+    <p>
+        <b>추가 매수단가 : </b>
+        <input id="add_stock_price" class="inputText" style="width:100px; vertical-align:middle; text-align:right;"
+            type="text" placeholder="추가 매수단가">
+        <b>$,원</b>
+    </p>
+    <p>
+        <b>추가 매수수량 : </b>
+        <input id="add_stocks" class="inputText" style="width:100px; vertical-align:middle; text-align:right;"
+            type="text" placeholder="추가 매수수량">
+        <b>주</b>
+    </p>
+    <p>
+        <button id="btn" onclick="calstocks()">결과보기</button>
+    </p>
+
+    <p>
+        <b>
+        최종 보유수량 : 
+        <span id="stocks"></span>
+        <span>주</span>
+        <br>
+        평균단가 : 
+        <span id="result"></span>
+        <span>$,원</span>
+        </b>
+    </p>
+    <script>
+        function calstocks(){
+            var now_stock_price = document.getElementById('now_stock_price').value;
+            now_stock_price = parseFloat(now_stock_price);
+
+            var now_stocks = document.getElementById('now_stocks').value;
+            now_stocks = parseInt(now_stocks);
+
+            var add_stock_price = document.getElementById('add_stock_price').value;
+            add_stock_price = parseFloat(add_stock_price);
+
+            var add_stocks = document.getElementById('add_stocks').value;
+            add_stocks = parseInt(add_stocks);
+
+            var stocks;
+            stocks = parseInt(stocks);
+            stocks = now_stocks + add_stocks
+            
+            var result;
+            result = parseFloat(result);
+            result = ((now_stock_price * now_stocks) + (add_stock_price * add_stocks)) / stocks;
+            result = result.toFixed(4);
+
+            document.getElementById("stocks").innerHTML = stocks;
+            document.getElementById("result").innerHTML = result;
+            
+        }
+    </script>
+</body>
+</html>
